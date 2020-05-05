@@ -1,11 +1,3 @@
-//
-//  UIViewContollerExt.swift
-//  goalpost-app
-//
-//  Created by Aditya Sharma on 03/05/20.
-//  Copyright © 2020 Aditya Sharma. All rights reserved.
-//
-
 import UIKit
 
 extension UIViewController {
