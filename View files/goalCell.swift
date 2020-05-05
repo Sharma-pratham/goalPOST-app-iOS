@@ -1,11 +1,3 @@
-//
-//  goalCell.swift
-//  goalpost-app
-//
-//  Created by Aditya Sharma on 30/04/20.
-//  Copyright © 2020 Aditya Sharma. All rights reserved.
-//
-
 import UIKit
 
 class goalCell: UITableViewCell {
