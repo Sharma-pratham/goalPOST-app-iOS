@@ -35,7 +35,14 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func CreateGoalBtnWasPressed(_ sender: Any) {
-        
+         if pointsTxtField.text != "" {
+                self.save{
+                    (complete) in
+                    if complete {
+                        dismiss(animated: true, completion: nil)
+                    }
+                }
+        }
         
     }
     
@@ -43,16 +50,24 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
         dismissDetail()
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func save(completion: (_ finished: Bool) -> ()) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else{return}
+        let goal = Goal(context: managedContext)
+        goal.goalDescription = goalDescription
+        goal.goalType = goalType.rawValue
+        goal.goalCompletionValue = Int32(pointsTxtField.text!)!
+        goal.goalProgress = Int32(0)
+        
+        do {
+            try managedContext.save()
+            completion(true)
+        }
+        catch {
+            debugPrint("Could Not Save : \(error.localizedDescription)")
+            completion(false)
+        }
     }
-    */
+    
+    
 
 }
