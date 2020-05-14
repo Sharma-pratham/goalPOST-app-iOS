@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 class FinishGoalVC: UIViewController, UITextFieldDelegate {
 
@@ -27,7 +28,7 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func CreateGoalBtnWasPressed(_ sender: Any) {
-         if pointsTxtField.text != "" {
+        if pointsTxtField.text != "" {
                 self.save{
                     (complete) in
                     if complete {
@@ -60,6 +61,6 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
+ 
 
 }
